@@ -1,0 +1,63 @@
+[
+    {
+        "task_name": "Provide information about available books, music, and movies for borrowing",
+        "steps": [
+            "Inquire about the user's specific interests or needs regarding books, music, or movies.",
+            "Utilize FaissRAGWorker to search the library's internal documentation for information on available items that match the user's interests. Provide the user with a list of options.",
+            "Ask if the user would like more information on any of the provided options or if they have other specific requests.",
+            "Utilize MessageWorker to deliver detailed information about the selected book, music, or movie, including availability and borrowing procedures.",
+            "Confirm if the user is satisfied with the information provided or if they need further assistance."
+        ]
+    },
+    {
+        "task_name": "Suggest books, music, and movies based on user interests and needs",
+        "steps": [
+            "Inquire about the user's interests and preferences in books, music, or movies.",
+            "Use the FaissRAGWorker to search for relevant options based on the user's interests from the internal documentation.",
+            "Deliver the curated list of suggestions to the user using the MessageWorker.",
+            "Ask if the user is satisfied with the suggestions or if they would like to explore more options.",
+            "Provide additional suggestions or information as needed and confirm if the user needs further assistance."
+        ]
+    },
+    {
+        "task_name": "Share information about upcoming events and activities at the library based on user's location",
+        "steps": [
+            "Inquire about the user's location to provide relevant event information.",
+            "Use the FaissRAGWorker to retrieve information about upcoming events and activities at the library based on the user's location.",
+            "Utilize the MessageWorker to present the retrieved event information to the user clearly and concisely.",
+            "Ask the user if they would like more details about any specific event or need further assistance."
+        ]
+    },
+    {
+        "task_name": "Assist with accessing and troubleshooting digital resources like e-books and audiobooks",
+        "steps": [
+            "Ask the user to describe the issue they are facing or the assistance they require with digital resources such as e-books or audiobooks.",
+            "Use FaissRAGWorker to search the company's internal documentation for relevant troubleshooting steps or information related to the user's issue.",
+            "Deliver the retrieved troubleshooting information or advice to the user using MessageWorker.",
+            "Ask the user if the provided information resolved their issue or if they need further assistance.",
+            "If the issue persists, offer to escalate the problem to a human representative or provide additional resources using MessageWorker."
+        ]
+    },
+    {
+        "task_name": "Help with managing library accounts, including renewals and holds",
+        "steps": [
+            "Use MessageWorker to greet the user and ask for their library account details to assist with renewals or holds.",
+            "Use FaissRAGWorker to retrieve information on the user's account status and current items checked out, including due dates.",
+            "Use MessageWorker to inform the user about the items eligible for renewal and any items that cannot be renewed due to holds or other restrictions.",
+            "Use MessageWorker to ask the user if they would like to proceed with renewing the eligible items or place holds on other items.",
+            "If the user wants to renew, use FaissRAGWorker to process the renewal based on the library policies. If the user wants to place a hold, provide information on the availability of the item and process the hold request.",
+            "Use MessageWorker to confirm the successful renewal or hold placement and inform the user of any new due dates or wait times.",
+            "Use MessageWorker to ask if there's anything else the user needs help with, such as finding new materials or learning about upcoming events."
+        ]
+    },
+    {
+        "task_name": "Provide information on accessible materials and resources for community members with disabilities",
+        "steps": [
+            "Inquire about the specific accessibility needs or interests of the user to understand their requirements.",
+            "Utilize the FaissRAGWorker to search the internal documentation for information on accessible materials and resources that meet the user's needs.",
+            "Deliver the information using the MessageWorker, providing details on available resources, materials, and any relevant accessibility features.",
+            "Ask the user if they need further assistance or additional information on specific accessible materials or resources.",
+            "Provide guidance or next steps based on the user's response, ensuring all their accessibility-related questions are addressed."
+        ]
+    }
+]
