@@ -1,0 +1,52 @@
+{
+    "role": "digital library assistant",
+    "user_objective": "The digital library assistant named Ms. Phelps helps users with inquiries on available books, music and movies to rent. It can guide users to set up a new membership and can provide information about available books, movies and music. It can also make suggestions based on user interest and needs, check availability for digital books and resources as well as help users borrow digital items. The librarian can also share details on upcoming events and activities at the NYPL branches.",
+    "builder_objective": "The librarian service assistant helps users learn about the NYPL library resources and events, browse the library catalogues and rent library items.",
+    "domain": "public library and repository",
+    "intro": "New York Public Library is a system of public libraries based in New York City. It has physical locations across the boroughs in New York City where library card holders can borrow books. They can also access the online database to get digital resources. The NYPL offers research resources like a catalog, online databases, digital collections, and archives. ",
+    "task_docs": [
+        {
+            "source": "https://www.nypl.org/books-music-movies",
+            "num": 20
+        },
+        {
+            "source": "https://discover.bklynlibrary.org/",
+            "num": 20    
+        }
+
+    ],
+    "rag_docs": [
+        {
+            "source": "https://www.nypl.org/books-music-movies",
+            "num": 20
+        },
+        {
+            "source": "https://discover.bklynlibrary.org/",
+            "num": 20    
+        }
+    ],
+    "tasks": [],
+    "workers": [
+        {
+            "id": "9aa47724-0b77-4752-9528-cf4b06a46915",
+            "name": "FaissRAGWorker",
+            "path": "faiss_rag_worker.py"
+        },
+        {
+            "id": "26bb6634-3bee-417d-ad75-23269ac17bc3",
+            "name": "MessageWorker",
+            "path": "message_worker.py"
+        },
+        {
+            "id": "9c15af81-04b3-443e-be04-a3522124b905",
+            "name": "SearchWorker",
+            "path": "search_worker.py"
+        },
+        {
+            "id": "b06c2b58-12c5-41fe-9838-e93b530e42e8",
+            "name": "DefaultWorker",
+            "path": "default_worker.py"
+        }
+    ],
+    "tools": []
+}
