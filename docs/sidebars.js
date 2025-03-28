@@ -31,7 +31,14 @@ const sidebars = {
         'tutorials/booking-service'
       ],
     },
-    'Config',
+    {
+      type: 'category',
+      label: 'Config',
+      link: {type: 'doc', id: 'Config/intro'},
+      items: [
+        'Config/ChatModels'
+      ],
+    },
     {
       type: 'category',
       label: 'Taskgraph',
@@ -54,6 +61,7 @@ const sidebars = {
         'Workers/DefaultWorker'
       ],
     },
+    'Tools',
     {
       type: 'category',
       label: 'Integration',

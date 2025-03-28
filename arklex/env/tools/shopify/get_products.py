@@ -9,16 +9,13 @@ from arklex.env.tools.shopify.utils_nav import *
 from arklex.env.tools.shopify.utils import authorify_admin
 
 # ADMIN
-from arklex.env.tools.shopify.utils_slots import ShopifySlots, ShopifyOutputs
+from arklex.env.tools.shopify.utils_slots import ShopifyGetProductsSlots, ShopifyOutputs
 from arklex.env.tools.tools import register_tool
 
 logger = logging.getLogger(__name__)
 
 description = "Get the inventory information and description details of multiple products."
-slots = [
-    ShopifySlots.PRODUCT_IDS,
-    *PAGEINFO_SLOTS
-]
+slots = ShopifyGetProductsSlots.get_all_slots()
 outputs = [
     ShopifyOutputs.PRODUCTS_DETAILS,
     *PAGEINFO_OUTPUTS
@@ -47,6 +44,10 @@ def get_products(product_ids: list, **kwargs) -> str:
                             description
                             totalInventory
                             onlineStoreUrl
+                            options {{
+                                name
+                                values
+                            }}
                             category {{
                                 name
                             }}
@@ -76,6 +77,7 @@ def get_products(product_ids: list, **kwargs) -> str:
                 response_text += f"Title: {product.get('title', 'None')}\n"
                 response_text += f"Description: {product.get('description', 'None')}\n"
                 response_text += f"Total Inventory: {product.get('totalInventory', 'None')}\n"
+                response_text += f"Options: {product.get('options', 'None')}\n"
                 response_text += "The following are several variants of the product:\n"
                 for variant in product.get('variants', {}).get('nodes', []):
                     response_text += f"Variant name: {variant.get('displayName', 'None')}, Variant ID: {variant.get('id', 'None')}, Price: {variant.get('price', 'None')}, Inventory Quantity: {variant.get('inventoryQuantity', 'None')}\n"

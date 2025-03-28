@@ -8,7 +8,7 @@ from arklex.env.tools.shopify.utils_nav import *
 from arklex.env.tools.shopify.utils import authorify_admin
 
 # ADMIN
-from arklex.env.tools.shopify.utils_slots import ShopifySlots, ShopifyOutputs
+from arklex.env.tools.shopify.utils_slots import ShopifyGetProductImagesSlots, ShopifyOutputs
 from arklex.env.tools.tools import register_tool
 
 from arklex.utils.model_provider_config import PROVIDER_MAP
@@ -19,10 +19,7 @@ from langchain_openai import ChatOpenAI
 logger = logging.getLogger(__name__)
 
 description = "Get the product image url of a product."
-slots = [
-    ShopifySlots.PRODUCT_IDS,
-    *PAGEINFO_SLOTS
-]
+slots = ShopifyGetProductImagesSlots.get_all_slots()
 outputs = [
     ShopifyOutputs.PRODUCTS_DETAILS,
     *PAGEINFO_OUTPUTS
@@ -76,7 +73,7 @@ def get_product_images(product_ids: list, **kwargs) -> str:
                     "id": product.get('id'),
                     "title": product.get('title'), 
                     "description": product.get('description', "None")[:180] + "...", 
-                    "product_url": product.get('onlineStoreUrl'),
+                    "link_url": product.get('onlineStoreUrl'),
                     "image_url" : product.get('images', {}).get('edges', [{}])[0].get('node', {}).get('src', ""),
                 }
                 card_list.append(product_dict)
